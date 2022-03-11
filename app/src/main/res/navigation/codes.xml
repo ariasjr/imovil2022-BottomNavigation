@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/codes"
+    app:startDestination="@id/mainCodes">
+
+    <fragment
+        android:id="@+id/mainCodes"
+        android:name="es.imovil.fcrtrainerbottom.MainCodesFragment"
+        android:label="MainCodes"
+        tools:layout="@layout/fragment_main_codes">
+        <action
+            android:id="@+id/action_mainCodesFragment_to_codesFirstExerciceFragment"
+            app:destination="@id/codesFirstExerciceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/codesFirstExerciceFragment"
+        android:name="es.imovil.fcrtrainerbottom.CodesFirstExerciceFragment"
+        android:label="fragment_codes_first_exercice"
+        tools:layout="@layout/fragment_codes_first_exercice" />
+</navigation>
