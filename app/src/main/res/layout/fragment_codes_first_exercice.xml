@@ -8,10 +8,9 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textExercice1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Primer ejercicio de códigos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

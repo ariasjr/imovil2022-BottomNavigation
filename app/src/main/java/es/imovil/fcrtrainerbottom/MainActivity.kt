@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController:NavController
     private lateinit var appBarConfiguration:AppBarConfiguration
-    //private lateinit var binding:ActivityMainBinding
+
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
