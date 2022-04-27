@@ -25,7 +25,9 @@ class MainCodesFragment : Fragment() {
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_mainCodesFragment_to_codesFirstExerciceFragment)
         }
-
+        binding.botonLanzarPuertaLogica.setOnClickListener{
+            findNavController().navigate(R.id.action_mainCodes_to_puertaLogicas)
+        }
         return binding.root
     }
 

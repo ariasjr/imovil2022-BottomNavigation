@@ -9,4 +9,13 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+    <string-array name="puertas_Logicas">
+        <item>AND</item>
+        <item>XOR</item>
+        <item>OR</item>
+        <item>NOT</item>
+        <item>NAND</item>
+        <item>NOR</item>
+        <item>Buffer triestado</item>
+    </string-array>
 </resources>
