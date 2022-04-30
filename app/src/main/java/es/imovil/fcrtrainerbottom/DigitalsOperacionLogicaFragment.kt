@@ -60,9 +60,6 @@ class DigitalsOperacionLogicaFragment : Fragment() {
         }
     }
 
-    private val BASE_BINARIA = 2
-    private val MAX_NUMBER_OF_OPERATIONS = 3
-
     private var mTvEntrada1: TextView? = null
     private var mTvEntrada2: TextView? = null
     private var mTvOperacion: TextView? = null
