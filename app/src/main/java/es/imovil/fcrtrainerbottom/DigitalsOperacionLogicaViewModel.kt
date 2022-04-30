@@ -58,11 +58,11 @@ class DigitalsOperacionLogicaViewModel : ViewModel() {
         ).toInt()
         val entero = mRandom.nextInt(maxNumber)
         var binario = Integer.toBinaryString(entero)
-        binario = completaNumeroBits(binario)
+        binario = completaNumeroBits(binario)!!
         return binario
     }
-    private fun completaNumeroBits(binario: String?): String? {
-        var binario = binario
+    private fun completaNumeroBits(bin: String?): String? {
+        var binario = bin
         var i = binario!!.length
         while (i < numberOfBits) {
             binario = "0$binario"
