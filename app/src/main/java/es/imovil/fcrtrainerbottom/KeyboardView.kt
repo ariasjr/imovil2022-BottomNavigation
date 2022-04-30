@@ -3,16 +3,12 @@ package es.imovil.fcrtrainerbottom
 import android.content.Context
 import android.widget.LinearLayout
 import android.widget.EditText
-import android.content.res.TypedArray
-import es.imovil.fcrtrainerbottom.R
-import android.text.Editable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import es.imovil.fcrtrainerbottom.databinding.KeyboardFullPanelBinding
 
 /**
  * Esta vista se utiliza para gestionar una teclado que contiene los números
@@ -61,7 +57,7 @@ class KeyboardView(context: Context, attrs: AttributeSet) : LinearLayout(context
         if (mEditText == null) {
             // No textView assigned. By default, we look for one with id answer
             val parent = parent as View
-            mEditText = parent.findViewById(R.id.text_view_answer)
+            mEditText = parent.findViewById(R.id.textViewAnswer)
             if (mEditText == null) { // not found
                 return
             }
