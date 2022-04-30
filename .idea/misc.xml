@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_cidr.xml" value="0.2" />
+        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_codes_first_exercice.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_codes.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/arias/AndroidStudioProjects/TrabajosEnGrupo/2022/FCRTrainerBottom/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/arias/AndroidStudioProjects/TrabajosEnGrupo/2022/FCRTrainerBottom/app/src/main/res/layout/fragment_codes_first_exercice.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/arias/AndroidStudioProjects/TrabajosEnGrupo/2022/FCRTrainerBottom/app/src/main/res/layout/fragment_main_codes.xml" value="0.18802083333333333" />
