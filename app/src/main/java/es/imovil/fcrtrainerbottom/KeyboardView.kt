@@ -12,6 +12,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import es.imovil.fcrtrainerbottom.databinding.FragmentDigitalsOperacionLogicaBinding
 import es.imovil.fcrtrainerbottom.databinding.KeyboardFullPanelBinding
 
 /**
