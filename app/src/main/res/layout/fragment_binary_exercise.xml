@@ -22,7 +22,7 @@
             android:orientation="vertical">
 
             <TextSwitcher
-                android:id="@+id/exercisetitle"
+                android:id="@+id/titleBinary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -48,7 +48,7 @@
                 android:orientation="horizontal">
 
                 <TextSwitcher
-                    android:id="@+id/numbertoconvert"
+                    android:id="@+id/number2ConvertBinary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.6">
@@ -71,7 +71,7 @@
                 </TextSwitcher>
 
                 <EditText
-                    android:id="@+id/textViewAnswer"
+                    android:id="@+id/viewAnswerBinary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -89,21 +89,21 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/checkbutton"
+                    android:id="@+id/checkButtonBinary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/check" />
 
                 <Button
-                    android:id="@+id/seesolution"
+                    android:id="@+id/solutionBinary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/solution" />
 
                 <Button
-                    android:id="@+id/change"
+                    android:id="@+id/changeBinary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_import_export"

@@ -57,7 +57,7 @@ class KeyboardView(context: Context, attrs: AttributeSet) : LinearLayout(context
         if (mEditText == null) {
             // No textView assigned. By default, we look for one with id answer
             val parent = parent as View
-            mEditText = parent.findViewById(R.id.textViewAnswer)
+            mEditText = parent.findViewById(R.id.viewAnswerBinary)
             if (mEditText == null) { // not found
                 return
             }
