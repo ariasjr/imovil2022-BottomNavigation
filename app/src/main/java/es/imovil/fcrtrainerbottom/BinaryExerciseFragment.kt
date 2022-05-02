@@ -15,18 +15,17 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import es.imovil.fcrtrainerbottom.databinding.FragmentNumericalExerciseBinding
+import es.imovil.fcrtrainerbottom.databinding.FragmentBinaryExerciseBinding
 import java.util.*
 import kotlin.math.pow
 
 
 class BinaryExerciseFragment : Fragment() {
 
-    private var _binding: FragmentNumericalExerciseBinding? = null
+    private var _binding: FragmentBinaryExerciseBinding? = null
     private val binding get() = _binding!!
 
     protected var mIsPlaying = false
-    private var mScore = 0
 
     private var mScoreTextView: TextView? = null
     private var mLevelTextView: TextView? = null
@@ -58,7 +57,7 @@ class BinaryExerciseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        _binding = FragmentNumericalExerciseBinding.inflate(inflater, container, false)
+        _binding = FragmentBinaryExerciseBinding.inflate(inflater, container, false)
 
         val homeViewModel = ViewModelProvider(this).get(CodesFirstExerciceViewModel::class.java)
 
@@ -66,7 +65,6 @@ class BinaryExerciseFragment : Fragment() {
         mChangeDirectionButton = binding.change
         mSolutionButton = binding.seesolution
         mCheckButton = binding.checkbutton
-
 
         mTitleTextView = binding.exercisetitle
         mTitleTextView!!.setInAnimation(activity, R.anim.slide_in_right);
@@ -81,6 +79,7 @@ class BinaryExerciseFragment : Fragment() {
             if (EditorInfo.IME_ACTION_DONE == actionId)
                 checkSolution(mAnswerEditText!!.editableText.toString().trim().lowercase(Locale.US))
             false
+
         }
 
         mCheckButton!!.setOnClickListener{
@@ -104,8 +103,6 @@ class BinaryExerciseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mResult = view.findViewById(R.id.result)
         mResultImage = view.findViewById(R.id.resultimage)
-        mScoreTextView = view.findViewById(R.id.text_view_score)
-        mLevelTextView = view.findViewById(R.id.text_view_level)
         mGameInfoPanel = view.findViewById(R.id.game_info_panel)
         if (mGameInfoPanel != null) {
             mGameInfoPanel!!.visibility = View.GONE
@@ -230,8 +227,6 @@ class BinaryExerciseFragment : Fragment() {
         }
     }
 
-
-
     private fun generateRandomQuestion() {
         mNumberToConvertString = generateRandomNumber()
     }
@@ -246,15 +241,6 @@ class BinaryExerciseFragment : Fragment() {
         mNumberToConvertTextSwitcher?.setText(mNumberToConvertString);
     }
 
-    /**
-     * Checks if the answer is correct. If the game mode is selected checks for
-     * the number of questions that already has been asked, in case that number
-     * is equal to the max number allowed calls endGame(). Also it adds a point
-     * for each correct answer in that mode.
-     *
-     * @param answer
-     *            the user input
-     */
     protected fun checkSolution(answer: String) {
         if (answer.equals("") || !isCorrect(answer)) {
             showAnimationAnswer(false);
@@ -268,12 +254,11 @@ class BinaryExerciseFragment : Fragment() {
         }
     }
 
+    protected fun level(): Level? {
+        return activity?.let { PreferenceUtils.getLevel(it) }
+    }
+
     protected fun numberOfBits(): Int {
-        return 4 //Level().numberOfBits()
+        return level()?.numberOfBits() ?: Level.BEGINNER.numberOfBits()
     }
 }
-
-
-
-
-

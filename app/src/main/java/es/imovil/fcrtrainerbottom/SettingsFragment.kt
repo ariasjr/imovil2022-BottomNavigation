@@ -19,7 +19,6 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChan
         onPreferenceChange(preference, PreferenceManager
             .getDefaultSharedPreferences(preference.context)
             .getString(preference.key, ""))
-
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
