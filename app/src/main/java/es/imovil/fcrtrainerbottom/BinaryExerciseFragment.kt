@@ -12,6 +12,7 @@ import android.view.animation.Animation
 import android.view.animation.AnticipateOvershootInterpolator
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
@@ -48,13 +49,15 @@ class BinaryExerciseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        (activity as AppCompatActivity).supportActionBar?.title = "Binario"
+
         //Get viewModel
         viewModel = ViewModelProvider(this)[BinaryExerciseViewModel::class.java]
 
         // Inflate the layout for this fragment
         _binding = FragmentBinaryExerciseBinding.inflate(inflater, container, false)
 
-        mAnswerEditText = binding.viewAnswerBinary
+        mAnswerEditText = binding.textViewAnswer
 
         mChangeDirectionButton = binding.changeBinary
         mSolutionButton = binding.solutionBinary
@@ -104,7 +107,6 @@ class BinaryExerciseFragment : Fragment() {
         val formatString: String = resources.getString(formatStringId)
         return java.lang.String.format(formatString, numberOfBits())
     }
-
 
     private fun obtainSolution(): String {
         if (mDirectConversion)

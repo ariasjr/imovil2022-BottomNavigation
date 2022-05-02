@@ -71,7 +71,7 @@
                 </TextSwitcher>
 
                 <EditText
-                    android:id="@+id/viewAnswerBinary"
+                    android:id="@+id/text_view_answer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
