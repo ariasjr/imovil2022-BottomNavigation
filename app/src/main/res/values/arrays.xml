@@ -9,4 +9,16 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="pref_level_entries">
+        <item>@string/pref_level1_name</item>
+        <item>@string/pref_level2_name</item>
+        <item>@string/pref_level3_name</item>
+    </string-array>
+
+    <string-array name="pref_level_values">
+        <item>@string/pref_level1_name</item>
+        <item>@string/pref_level2_name</item>
+        <item>@string/pref_level3_name</item>
+    </string-array>
 </resources>

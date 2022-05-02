@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import es.imovil.fcrtrainerbottom.databinding.FragmentNetworkMainBinding
 
 
@@ -20,6 +21,11 @@ class NetworkMainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentNetworkMainBinding.inflate(inflater, container, false)
+
+        binding.buttonToNetworkMaskFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_mainNetwork_to_networkMaskExerciseFragment)
+        }
+
         return binding.root
     }
 
