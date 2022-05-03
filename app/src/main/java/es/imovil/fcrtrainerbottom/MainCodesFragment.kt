@@ -26,6 +26,10 @@ class MainCodesFragment : Fragment() {
             findNavController().navigate(R.id.action_mainCodesFragment_to_codesFirstExerciceFragment)
         }
 
+        binding.binarioButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainCodes_to_binaryExerciseFragment2);
+        }
+
         return binding.root
     }
 
