@@ -1,7 +1,5 @@
 package es.imovil.fcrtrainerbottom
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,15 +16,21 @@ class CIDRViewModel : ViewModel() {
     private val _cidr = MutableLiveData<String>()
     val cidr: LiveData<String> get() = _cidr
 
+    //Variables para generar una mascara
+    val random= Random()
+    var mMask by Delegates.notNull<Int>()
+
+    //Funcion para comprobar una respuesta
     fun checkAnswer(answer: String): Boolean{
+        //Si la respuesta es vacia devuelve falso
         if(answer.isEmpty()){
             //Error
             return false
         }
 
+        //Si la respuesta es correcto devuelve verdadero
         if(answer.equals(correctAnswer())){
-
-            newQuestion()
+            newQuestion()   //Se genera una nueva pregunta
             return true
         }else{
             //Error
@@ -34,14 +38,17 @@ class CIDRViewModel : ViewModel() {
         }
     }
 
+    //Se obtiene la respuesta correcta de la mascara
     fun correctAnswer():String{
         return cidrSuffixFromMask(mMask).toString()
     }
 
+    //Funcion para mostrar la solucion en pantalla
     fun showSolution(){
         _cidr.value=correctAnswer()
     }
 
+    //Se obtiene el cidr de una mascara pasada como int
     fun cidrSuffixFromMask(mMask:Int):Int{
         var zeroCount = 0
         var mask = mMask
@@ -53,6 +60,7 @@ class CIDRViewModel : ViewModel() {
         return 32 - zeroCount
     }
 
+    //Funcion para generar una nueva mascara e imprimirla
     fun newQuestion() {
         mMask=generateRandomMask()
         printQuestion()
@@ -62,14 +70,6 @@ class CIDRViewModel : ViewModel() {
     fun printQuestion(){
         _ip.value=intToIpString(mMask)
     }
-
-
-
-    /*********************************************************************
-     *  BaseNetworkMaskExerciseFragment (Funciones y variables)
-     ********************************************************************/
-    val random= Random()
-    var mMask by Delegates.notNull<Int>()
 
     //Funcion para generar una mascara nueva
     fun generateRandomMask():Int{

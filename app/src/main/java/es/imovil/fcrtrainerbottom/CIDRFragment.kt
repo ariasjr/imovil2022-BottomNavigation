@@ -2,7 +2,6 @@ package es.imovil.fcrtrainerbottom
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,8 +23,10 @@ class CIDRFragment : Fragment(), View.OnClickListener {
     //Viewmodel del fragmento
     val CIDRviewModel: CIDRViewModel by viewModels()
 
+    //Caracter del teclado para borrar
     val delChar: String="◀"
 
+    //Variables para la animacion
     private var mResult: View? = null
     private var mResultImage: ImageView? = null
     private val mAntovershoot: AnticipateOvershootInterpolator? = null
@@ -35,10 +36,10 @@ class CIDRFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
+        //Vinculacion de vistas
         _binding= FragmentCidrBinding.inflate(inflater, container, false)
         mResult = binding.result
         mResultImage = binding.resultimage
-
 
         //Generar numero al iniciar
         CIDRviewModel.newQuestion()
@@ -46,13 +47,14 @@ class CIDRFragment : Fragment(), View.OnClickListener {
             binding.textViewQuestion.text=result
         }
 
-        //Al pulsa comprobar, comprobar
+        //Al pulsar comprobar se comprueba si es correcta la respuesta
         binding.buttonCheckAnswer.setOnClickListener {
             var correct: Boolean=CIDRviewModel.checkAnswer(binding.textViewAnswer.text.toString())
 
-            //Se muestra la animacion
+            //Se muestra la animacion correspondiente
             showAnimationAnswer(correct)
 
+            //Si es correcto se muestra la nueva pregunta
             if(correct){
                 CIDRviewModel.ip.observe(viewLifecycleOwner){ result ->
                     binding.textViewQuestion.text=result
@@ -62,7 +64,7 @@ class CIDRFragment : Fragment(), View.OnClickListener {
 
         }
 
-        //Al pulsar boton de solucion, mostrar solucion en input
+        //Al pulsar boton de solucion se muestra la solucion en input
         binding.buttonShowSolution.setOnClickListener {
             CIDRviewModel.showSolution()
             CIDRviewModel.cidr.observe(viewLifecycleOwner){ result ->
@@ -73,6 +75,7 @@ class CIDRFragment : Fragment(), View.OnClickListener {
             }
         }
 
+        //Si hay un error se genera una pregunta nueva
         if(savedInstanceState==null){
             CIDRviewModel.newQuestion()
             CIDRviewModel.ip.observe(viewLifecycleOwner){ result ->
@@ -80,8 +83,7 @@ class CIDRFragment : Fragment(), View.OnClickListener {
             }
         }
 
-
-        //Configuracion del teclado de la aplicacion
+        //Configuracion del teclado del fragmento
         binding.keyDelete.text=delChar
         binding.b0.setOnClickListener(this)
         binding.b1.setOnClickListener(this)
@@ -121,13 +123,17 @@ class CIDRFragment : Fragment(), View.OnClickListener {
                 binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
             R.id.b9 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"9")
                 binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.key_delete -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.take(binding.textViewAnswer.text.length-1))
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
+            R.id.key_delete -> {
+                if(binding.textViewAnswer.text.isNotEmpty()){
+                    binding.textViewAnswer.setText(binding.textViewAnswer.text.take(binding.textViewAnswer.text.length-1))
+                    binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)
+                }
+            }
         }
     }
 
+    //Funcion para mostrar la animacion al comprobar una respuesta
     private fun showAnimationAnswer(correct: Boolean) {
-        // Fade in - fade out
         mResult!!.visibility = View.VISIBLE
         val animation = AlphaAnimation(0.0f, 1.0f)
         animation.duration = 300
@@ -143,7 +149,7 @@ class CIDRFragment : Fragment(), View.OnClickListener {
         mResultImage!!.setImageDrawable(ContextCompat.getDrawable(this.requireContext(), drawableId))
         mResultImage!!.animate().setDuration(300).setInterpolator(mAntovershoot)
             .scaleX(1.5f).scaleY(1.5f)
-            .withEndAction { // Back to its original size after the animation's end
+            .withEndAction {
                 mResultImage!!.animate().scaleX(1f).scaleY(1f)
             }
     }
