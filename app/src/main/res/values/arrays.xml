@@ -9,6 +9,7 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
     <string-array name="puertas_Logicas">
         <item>AND</item>
         <item>OR</item>
@@ -31,4 +32,17 @@
         <item>@drawable/correct</item>
         <item>@drawable/incorrect</item>
     </array>
+
+
+    <string-array name="pref_level_entries">
+        <item>@string/pref_level1_name</item>
+        <item>@string/pref_level2_name</item>
+        <item>@string/pref_level3_name</item>
+    </string-array>
+    <string-array name="pref_level_values">
+        <item>@string/pref_level1_name</item>
+        <item>@string/pref_level2_name</item>
+        <item>@string/pref_level3_name</item>
+    </string-array>
+
 </resources>

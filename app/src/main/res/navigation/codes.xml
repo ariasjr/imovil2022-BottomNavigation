@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainCodesFragment_to_codesFirstExerciceFragment"
             app:destination="@id/codesFirstExerciceFragment" />
+        <action
+            android:id="@+id/action_mainCodes_to_binaryExerciseFragment2"
+            app:destination="@id/binaryExerciseFragment2" />
     </fragment>
     <fragment
         android:id="@+id/codesFirstExerciceFragment"
@@ -20,8 +23,9 @@
         android:label="fragment_codes_first_exercice"
         tools:layout="@layout/fragment_codes_first_exercice" />
     <fragment
-        android:id="@+id/puertaLogicas"
-        android:name="es.imovil.fcrtrainerbottom.PuertaLogicas"
-        android:label="fragment_puerta_logicas"
-        tools:layout="@layout/fragment_puerta_logicas" />
+        android:id="@+id/binaryExerciseFragment2"
+        android:name="es.imovil.fcrtrainerbottom.BinaryExerciseFragment"
+        android:label="BinaryExerciseFragment" />
+
+
 </navigation>
