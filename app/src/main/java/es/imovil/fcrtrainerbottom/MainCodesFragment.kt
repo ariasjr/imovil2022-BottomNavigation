@@ -26,6 +26,10 @@ class MainCodesFragment : Fragment() {
             findNavController().navigate(R.id.action_mainCodesFragment_to_codesFirstExerciceFragment)
         }
 
+        binding.buttonHexadecimal.setOnClickListener {
+            findNavController().navigate(R.id.action_mainCodesFragment_to_hexadecimalExerciseFragment)
+        }
+
         return binding.root
     }
 
