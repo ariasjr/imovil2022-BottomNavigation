@@ -9,5 +9,14 @@
         android:id="@+id/mainDigital"
         android:name="es.imovil.fcrtrainerbottom.MainDigitalsFragment"
         android:label="MainDigital"
-        tools:layout="@layout/fragment_main_digitals" />
+        tools:layout="@layout/fragment_main_digitals" >
+        <action
+            android:id="@+id/action_mainDigital_to_puertaLogicas2"
+            app:destination="@id/puertaLogicas2" />
+    </fragment>
+    <fragment
+        android:id="@+id/puertaLogicas2"
+        android:name="es.imovil.fcrtrainerbottom.PuertaLogicas"
+        android:label="fragment_puerta_logicas"
+        tools:layout="@layout/fragment_puerta_logicas" />
 </navigation>

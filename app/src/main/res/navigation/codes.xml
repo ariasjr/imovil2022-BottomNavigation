@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_mainCodesFragment_to_codesFirstExerciceFragment"
             app:destination="@id/codesFirstExerciceFragment" />
-        <action
-            android:id="@+id/action_mainCodes_to_puertaLogicas"
-            app:destination="@id/puertaLogicas" />
     </fragment>
     <fragment
         android:id="@+id/codesFirstExerciceFragment"

@@ -1,13 +1,17 @@
 package es.imovil.fcrtrainerbottom
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import es.imovil.fcrtrainerbottom.databinding.FragmentMainCodesBinding
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import es.imovil.fcrtrainerbottom.databinding.FragmentPuertaLogicasBinding
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,12 +23,22 @@ private const val ARG_PARAM2 = "param2"
  * Use the [PuertaLogicas.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PuertaLogicas : Fragment() {
+open class PuertaLogicas : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var _binding: FragmentPuertaLogicasBinding? = null
     private val binding get() = _binding!!
+    private var correcto=0;
+    private  var vistaEstado:View?=null;
+    private  var imageviewEstado:ImageView?=null;
+    private val vectorImg by lazy{
+        resources.obtainTypedArray(R.array.imagenes_puertasLogicas)
+    }
+    private val vectorEstado by lazy{
+        resources.obtainTypedArray(R.array.correctoOIncorrecto)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,14 +56,28 @@ class PuertaLogicas : Fragment() {
 
         binding.botonComprobarPuertaL.setOnClickListener {
             //todo
+            if(binding.spinnerPuertaLogica.selectedItemPosition==correcto){
+                var id=0
+
+                val random = Random()
+                correcto=random.nextInt(0..7)
+                binding.imageView.setImageResource(vectorImg.getResourceId(correcto,0))
+                binding.estado.setImageResource(vectorEstado.getResourceId(id,0))
+            }
+            else {
+                var id=1
+                binding.estado.setImageResource(vectorEstado.getResourceId(id,0))
+            }
 
         }
         binding.botonSolucionPuertaLogica.setOnClickListener{
-            //todo
+            binding.spinnerPuertaLogica.setSelection(correcto)
         }
         return binding.root
     }
-
+    fun Random.nextInt(range: IntRange): Int {
+        return range.start + nextInt(range.last - range.start)
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -68,5 +96,21 @@ class PuertaLogicas : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    protected fun showAnimationAnswer(correcto: Boolean) {
+        vistaEstado?.visibility=View.VISIBLE
+        val animation = AlphaAnimation(0f, 1f)
+        animation.duration = 300
+        animation.fillBefore = true
+        animation.fillAfter = true
+        animation.repeatCount = Animation.RESTART
+        animation.repeatMode = Animation.REVERSE
+        vistaEstado?.startAnimation(animation)
+
+        var id=R.drawable.correct
+        if(correcto!=true){
+            id=R.drawable.incorrect
+        }
+        imageviewEstado?.setImageDrawable(ContextCompat.getDrawable(this as Context,id))
     }
 }
