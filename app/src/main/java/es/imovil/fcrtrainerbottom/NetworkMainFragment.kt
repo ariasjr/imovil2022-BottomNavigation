@@ -25,6 +25,10 @@ class NetworkMainFragment : Fragment() {
         binding.buttonCIDR.setOnClickListener {
             findNavController().navigate(R.id.action_mainNetwork_to_CIDRFragment)
         }
+        
+        binding.buttonToNetworkMaskFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_mainNetwork_to_networkMaskExerciseFragment)
+        }
 
         return binding.root
     }
