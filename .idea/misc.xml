@@ -3,37 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_cidr.xml" value="0.264" />
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_codes_first_exercice.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_codes.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_mask_exercise.xml" value="0.19384057971014493" />
-        <entry key="..\:/Users/afgba/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/drawable/cards.xml" value="0.1565" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/activity_main.xml" value="0.225" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_base_exercise.xml" value="0.225" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_base_network_mask_exercise.xml" value="0.35260416666666666" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_codes.xml" value="0.3490740740740741" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_digitals.xml" value="0.36666666666666664" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_main.xml" value="0.3490740740740741" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_mask_exercise.xml" value="0.1259259259259259" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/game_info_panel.xml" value="0.36666666666666664" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/keyboard_binary_panel.xml" value="0.36666666666666664" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/keyboard_full_panel.xml" value="0.36666666666666664" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/network_mask_fragment.xml" value="0.3490740740740741" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/layout/overlapped_info_window.xml" value="0.18802083333333333" />
-        <entry key="..\:/Sergio/Cosas/Uni/proyectosAndroidStudio/imovil2022-BottomNavigation/app/src/main/res/xml/preferences.xml" value="0.1" />
-        <entry key="..\:/Users/David/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_main.xml" value="0.378125" />
-        <entry key="..\:/Users/David/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_mask_exercise.xml" value="0.378125" />
-        <entry key="..\:/Users/David/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/network_address_exercise_fragement.xml" value="0.378125" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_binary_exercise.xml" value="0.55" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_codes_first_exercice.xml" value="0.55" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_digitals_operacion_logica.xml" value="0.55" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_codes.xml" value="0.33" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_digitals.xml" value="0.33" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_main.xml" value="0.31145833333333334" />
-        <entry key="..\:/Users/ander/Documents/GitHub/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_mask_exercise.xml" value="0.55" />
         <entry key="..\:/Users/arias/AndroidStudioProjects/TrabajosEnGrupo/2022/FCRTrainerBottom/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/arias/AndroidStudioProjects/TrabajosEnGrupo/2022/FCRTrainerBottom/app/src/main/res/layout/fragment_codes_first_exercice.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/arias/AndroidStudioProjects/TrabajosEnGrupo/2022/FCRTrainerBottom/app/src/main/res/layout/fragment_main_codes.xml" value="0.18802083333333333" />
@@ -49,13 +18,17 @@
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/drawable/ic_settings_24.xml" value="0.1845" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/activity_main.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/ejemplo.xml" value="0.1634963768115942" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_binary_exercise.xml" value="0.1515625" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_codes_first_exercice.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_codes.xml" value="0.25" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_main_digitals.xml" value="0.22" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_network_main.xml" value="0.15217391304347827" />
-        <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_signed_magnitude_exercise.xml" value="0.25346260387811637" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_signed_magnitude_exercise.xml" value="0.1" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/fragment_signed_magnitude_exercise2.xml" value="0.1515625" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/keyboard_binary_panel.xml" value="0.2" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/keyboard_full_panel.xml" value="0.1634963768115942" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/network_address_exercise_fragment.xml" value="0.184375" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/layout/overlapped_info_window.xml" value="0.184375" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/xml/preferences.xml" value="0.11730072463768115" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/imovil2022-BottomNavigation/app/src/main/res/xml/root_preferences.xml" value="0.1" />

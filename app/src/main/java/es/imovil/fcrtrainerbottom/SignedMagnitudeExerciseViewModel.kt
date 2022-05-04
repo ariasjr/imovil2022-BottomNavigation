@@ -2,8 +2,7 @@ package es.imovil.fcrtrainerbottom
 
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModel
-import es.uniovi.imovil.fcrtrainer.Level
-import es.uniovi.imovil.fcrtrainer.PreferenceUtils
+
 import es.uniovi.imovil.fcrtrainer.digitalinformation.BinaryConverter
 import java.security.AccessController.getContext
 import java.util.*
@@ -22,34 +21,7 @@ class SignedMagnitudeExerciseViewModel : ViewModel() {
     var sign: Int = 0
     var signAsString = "0"
     var magnitudeBinary: String = ""
-/*
-    protected fun generateRandomNumber(): String {
-        val numberOfBitsMagnitude: Int = bits - 1
-        val maxMagnitude = (Math.pow(2.0, numberOfBitsMagnitude.toDouble()) - 1).toInt()
-        val randomNumber: Int = mRandomGenerator.nextInt(maxMagnitude)
-        val magnitudeDecimal = randomNumber.toString()
-        val sign: Int = mRandomGenerator.nextInt(2) // it can be 0 or 1
-        val signAsString = if (sign == 0) "0" else "1"
-        val magnitudeBinary: String = BinaryConverter.binaryToStringWithNbits(
-            randomNumber, numberOfBitsMagnitude
-        )
-        return if (mDirectConversion) {
-            mCorrectAnswer = if (sign == 0) {
-                magnitudeDecimal
-            } else {
-                "-$magnitudeDecimal"
-            }
-            signAsString + magnitudeBinary
-        } else {
-            mCorrectAnswer = signAsString + magnitudeBinary
-            if (sign == 0) {
-                magnitudeDecimal
-            } else {
-                "-$magnitudeDecimal"
-            }
-        }
-    }
-    */
+
 
     fun setDatosNumber(){
         numberOfBitsMagnitude = bits - 1

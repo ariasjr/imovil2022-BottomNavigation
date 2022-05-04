@@ -1,7 +1,7 @@
 package es.imovil.fcrtrainerbottom
 
 
-import android.R
+
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,25 +13,16 @@ import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import es.imovil.fcrtrainerbottom.databinding.FragmentSignedMagnitudeExerciseBinding
-import es.uniovi.imovil.fcrtrainer.Level
-import es.uniovi.imovil.fcrtrainer.PreferenceUtils
+
 import java.util.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SignedMagnitudeExerciseFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SignedMagnitudeExerciseFragment : Fragment() {
     private var respuestaCorrecta: String? = null
 
@@ -61,6 +52,8 @@ class SignedMagnitudeExerciseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Signo-Magnitud"
         // Inflate the layout for this fragment
         _binding = FragmentSignedMagnitudeExerciseBinding.inflate(inflater, container, false)
 
@@ -75,9 +68,8 @@ class SignedMagnitudeExerciseFragment : Fragment() {
         botonCambio = binding.botonCambio
 
 
-        result = binding.result
-        resultImage = binding.resultImage
-
+       /* result = binding.result
+        resultImage = binding.resultImage*/
 
         setEnunciado()
         generarPregunta()
@@ -96,6 +88,11 @@ class SignedMagnitudeExerciseFragment : Fragment() {
         }
 
         return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        result = view.findViewById(R.id.result)
+        resultImage = view.findViewById(R.id.resultimage)
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -123,11 +120,11 @@ class SignedMagnitudeExerciseFragment : Fragment() {
     protected fun comprobar(){
         val respuesta = binding.textViewAnswer?.editableText.toString()
         if (isCorrect(respuesta)) {
-            //showAnimationAnswer(true)
+            showAnimationAnswer(true)
             generarPregunta()
             binding.textViewAnswer?.setText("")
         } else {
-            //showAnimationAnswer(false)
+            showAnimationAnswer(false)
         }
     }
 
@@ -177,31 +174,37 @@ class SignedMagnitudeExerciseFragment : Fragment() {
     protected fun level(): Level? {
         return PreferenceUtils.getLevel(requireContext())
     }
-/*
-    protected fun showAnimationAnswer(correct: Boolean) {
+
+    private fun showAnimationAnswer(correct: Boolean) {
         // Fade in - fade out
-        result!!.setVisibility(View.VISIBLE)
+        result?.visibility = View.VISIBLE
         val animation = AlphaAnimation(0.0f, 1.0f)
         animation.duration = 300
         animation.fillBefore = true
         animation.fillAfter = true
         animation.repeatCount = Animation.RESTART
         animation.repeatMode = Animation.REVERSE
-        result!!.startAnimation(animation)
+        result?.startAnimation(animation)
         var drawableId: Int = R.drawable.correct
 
-        if (!correct) {
+        if (!correct)
             drawableId = R.drawable.incorrect
-        }
-        resultImage!!.setImageDrawable(ContextCompat.getDrawable(requireContext(), drawableId))
+
+        resultImage?.setImageDrawable(
+            ContextCompat.getDrawable(
+                this.requireContext(),
+                drawableId
+            )
+        )
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            resultImage!!.animate().setDuration(300).setInterpolator(mAntovershoot)
-                .scaleX(1.5f).scaleY(1.5f)
-                .withEndAction(Runnable { // Back to its original size after the animation's end
-                    resultImage!!.animate().scaleX(1f).scaleY(1f)
-                })
+            resultImage?.animate()?.setDuration(300)?.setInterpolator(mAntovershoot)
+                ?.scaleX(1.5f)?.scaleY(1.5f)
+                ?.withEndAction { // Back to its original size after the animation's end
+                    resultImage?.animate()?.scaleX(1f)?.scaleY(1f)
+                }
         }
     }
-    */
+
 
 }

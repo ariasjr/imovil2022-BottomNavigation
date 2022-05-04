@@ -1,10 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:fillViewport="true">
+    android:fillViewport="true" >
 
     <RelativeLayout
         style="@style/game_fragment"
@@ -57,46 +57,37 @@
 
             </RelativeLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/boton_comprobar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:text="COMPROBAR"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_weight="1"
+                    android:text="@string/check" />
 
                 <Button
                     android:id="@+id/boton_solucion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:text="SOLUCION"
-                    app:layout_constraintStart_toEndOf="@+id/boton_comprobar"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_weight="1"
+                    android:text="@string/solution" />
 
                 <Button
                     android:id="@+id/boton_cambio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="CA"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:drawableStart="@drawable/ic_import_export"
+                    android:drawableLeft="@drawable/ic_import_export"
+                    android:minWidth="48dp"
+                    app:icon="@drawable/ic_import_export"
+                    app:iconSize="30dp" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <es.imovil.fcrtrainerbottom.KeyboardView
                 android:layout_width="283dp"
@@ -109,21 +100,8 @@
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="53dp" />
 
-            <RelativeLayout
-                android:id="@+id/result"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/resultImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="140dp" />
-            </RelativeLayout>
-
         </LinearLayout>
+        <include layout="@layout/overlapped_info_window" />
     </RelativeLayout>
 
 

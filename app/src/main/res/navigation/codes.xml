@@ -19,6 +19,9 @@
       <action
             android:id="@+id/action_mainCodesFragment_to_hexadecimalExerciseFragment"
             app:destination="@id/hexadecimalExerciceFragment" />
+        <action
+            android:id="@+id/action_mainCodesFragment_to_signalMagnitudeFragment"
+            app:destination="@id/signedMagnitudeExerciseFragment" />
     </fragment>
     <fragment
         android:id="@+id/codesFirstExerciceFragment"
@@ -34,4 +37,8 @@
         android:name="es.imovil.fcrtrainerbottom.HexadecimalExerciseFragment"
         android:label="fragment_hexadecimal_exercice"
         tools:layout="@layout/fragment_hexadecimal_exercise" />
+    <fragment
+        android:id="@+id/signedMagnitudeExerciseFragment"
+        android:name="es.imovil.fcrtrainerbottom.SignedMagnitudeExerciseFragment"
+        android:label="SignedMagnitudeExerciseFragment" />
 </navigation>

@@ -22,9 +22,6 @@ class MainCodesFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMainCodesBinding.inflate(inflater, container, false)
 
-        binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_mainCodesFragment_to_codesFirstExerciceFragment)
-        }
 /*
         binding.binarioButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainCodes_to_binaryExerciseFragment2);
