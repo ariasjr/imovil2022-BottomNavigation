@@ -13,21 +13,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import es.imovil.fcrtrainerbottom.databinding.FragmentCodesFirstExerciceBinding
 import es.imovil.fcrtrainerbottom.databinding.FragmentHexadecimalExerciseBinding
 import java.util.*
 
+/**
+ * Fragmento para el ejercicio hexadecimal del trabajo en grupo de
+ * Informática Móvil 2021-2022, PL2
+ * @author Andrés García González UO271210
+ */
 class HexadecimalExerciseFragment : Fragment() {
 
-    // Variable declaration
-    //  View Binding
+    // Declaración de variables
+    //  Vinculación de vistas
     private var _binding: FragmentHexadecimalExerciseBinding? = null
     private val binding get() = _binding!!
 
-    //  Associated ViewModel
+    //  ViewModel asociado
     private lateinit var viewModel: HexadecimalExerciseViewModel
 
-    //  Layout elements
+    //  Elementos del layout
     private var mAnswerEditText : EditText? = null
     private var mCheckButton : Button? = null
     private var mChangeDirectionButton : Button? = null
@@ -35,25 +39,20 @@ class HexadecimalExerciseFragment : Fragment() {
     private var mNumberToConvertTextSwitcher : TextSwitcher? = null
     private var mTitleTextView : TextSwitcher? = null
 
-    //  Number to convert and conversion direction
+    //  Número a convertir y tipo de conversión
     private var mNumberToConvertString : String = ""
-    private var mDirectConversion : Boolean = true;
+    private var mDirectConversion : Boolean = true
 
-    // Variables used during result animation
+    // Variables usadas para las animaciones tras comprobar resultado
     private var mResult: View? = null
     private var mResultImage: ImageView? = null
     private val mAntovershoot: AnticipateOvershootInterpolator? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //  Initialize view model
+        //  Inicialización de ViewModel
         viewModel =
             ViewModelProvider(this).get(HexadecimalExerciseViewModel::class.java)
 
@@ -62,7 +61,7 @@ class HexadecimalExerciseFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHexadecimalExerciseBinding.inflate(inflater, container, false)
 
-        // Initialize variables
+        // Inicialización de variables
         with(binding) {
             mAnswerEditText              = textViewAnswer
             mCheckButton                 = checkbutton
@@ -71,20 +70,21 @@ class HexadecimalExerciseFragment : Fragment() {
             mNumberToConvertTextSwitcher = numbertoconvert
             mTitleTextView               = exercisetitle
         }
-        // Observers
+        // Observers para la persistencia de datos
         viewModel.question.observe(viewLifecycleOwner) {
             mNumberToConvertString = it
             mNumberToConvertTextSwitcher?.setText(it)
         }
-        viewModel.answer.observe(viewLifecycleOwner) {
-            mAnswerEditText?.setText(it)
+        viewModel.directConversion.observe(viewLifecycleOwner) {
+            mDirectConversion = it
+            setTitle()
         }
 
         // Result and ResultImage
         mResult = binding.result
         mResultImage = binding.resultimage
 
-        //  Exercise title and number to convert animations
+        //  Enunciado del ejercicio y número a convertir
         with(mTitleTextView!!) {
             setText(titleString())
             setInAnimation(activity, R.anim.slide_in_right)
@@ -94,14 +94,12 @@ class HexadecimalExerciseFragment : Fragment() {
             setInAnimation(activity, android.R.anim.slide_in_left)
             setOutAnimation(activity, android.R.anim.slide_out_right)
         }
-
         // Event handlers
         mCheckButton!!.setOnClickListener {
             checkSolution(mAnswerEditText!!.editableText.toString().trim().lowercase(Locale.US))
         }
         mChangeDirectionButton!!.setOnClickListener {
-            mDirectConversion = mDirectConversion xor true
-            viewModel.setDirectionConversion(mDirectConversion)
+            viewModel.changeConversionDirection()
             setTitle()
             newQuestion()
         }
@@ -113,19 +111,38 @@ class HexadecimalExerciseFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        newQuestion()
+        // Se asegura que haya un número a convertir en el arranque
+        if(viewModel.question.value == "")
+            newQuestion()
     }
+
+    /**
+     * Devuelve la solución para el ejercicio actual
+     * @return Solución en String
+     */
     private fun obtainSolution() : String {
         return if(mDirectConversion) { // if it's a binary → hex exercise
-            Integer.parseInt(mNumberToConvertString, 2).toString(16).uppercase()
+            viewModel.binaryToHex(mNumberToConvertString)
         } else {                // if it's a hex → binary exercise
             viewModel.hexToBinary(mNumberToConvertString)
         }
     }
 
+    /**
+     * Compara la respuesta introducida con la solución del ejercicio y devuelve
+     * un valor booleano
+     * @param answer Respuesta introducida
+     * @return True si la respuesta es igual que la solución, false si no lo es
+     */
     private fun isCorrect(answer: String) : Boolean {
         return obtainSolution() == answer.uppercase(Locale.US)
     }
+
+    /**
+     * Comprueba si la solución introducida es correcta. Si la respuesta es
+     * correcta se generará una nueva pregunta.
+     * @param answer Respuesta introducida
+     */
     private fun checkSolution(answer: String) {
         if(answer == "" || !isCorrect(answer)) {
             showAnimationAnswer(false)
@@ -134,16 +151,28 @@ class HexadecimalExerciseFragment : Fragment() {
             newQuestion()
         }
     }
+
+    /**
+     * Cambia el enunciado del ejercicio según el valor devuelto
+     * por titleString()
+     * @see titleString
+     */
     private fun setTitle() {
         mTitleTextView!!.setText(titleString())
     }
 
+    /**
+     * Devuelve el enunciado del ejercicio definido en strings.xml
+     * dependiendo del tipo de conversión actual.
+     * @return "Convierte de binario con %1$d bits a hexadecimal" si
+     * mDirectConversion es true, "Convierte de hexadecimal a binario
+     * con %1$d bits" si es falso
+     */
     private fun titleString(): String {
-        var formatStringId : Int
-        if(mDirectConversion) { // if it's a binary → hex exercise
-            formatStringId = R.string.convert_bin_to_hex
+        val formatStringId : Int = if(mDirectConversion) { // if it's a binary → hex exercise
+            R.string.convert_bin_to_hex
         } else {                // if it's a hex → binary exercise
-            formatStringId = R.string.convert_hex_to_bin
+            R.string.convert_hex_to_bin
         }
         return String.format(
             resources.getString(formatStringId),
@@ -151,10 +180,19 @@ class HexadecimalExerciseFragment : Fragment() {
         )
     }
 
+    /**
+     * Devuelve el nivel de dificultad actual
+     * @return "APRENDIZ", "INICIADO" o "MAESTRO"
+     */
     private fun level(): Level? {
         return PreferenceUtils.getLevel(this.requireContext())
     }
 
+    /**
+     * Genera una nueva pregunta para el ejercicio actual. El número de bits
+     * de la pregunta generada depende de la dificultad seleccionada.
+     * @see level
+     */
     private fun newQuestion() {
          mAnswerEditText!!.setText("")
          with(viewModel) {
@@ -162,6 +200,11 @@ class HexadecimalExerciseFragment : Fragment() {
              newQuestion()
          }
     }
+
+    /**
+     * Muestra la solución al ejercicio actual en el editText
+     * usado para introducir respuestas
+     */
     private fun showSolution() {
         with(mAnswerEditText!!) {
             setText(obtainSolution())
@@ -169,6 +212,12 @@ class HexadecimalExerciseFragment : Fragment() {
         }
     }
 
+    /**
+     * Muestra el icono y animación pertinentes dependiendo del
+     * valor de correct
+     * @param correct Valor booleano, true indica correcto y false indica
+     * incorrecto
+     */
     private fun showAnimationAnswer(correct: Boolean) {
         // Fade in - fade out
         val animation = AlphaAnimation(0.0f, 1.0f)
