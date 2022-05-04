@@ -23,9 +23,15 @@ class MainDigitalsFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMainDigitalsBinding.inflate(inflater, container, false)
 
-        binding.bOperacion.setOnClickListener {
-            findNavController().navigate(R.id.action_mainDigitalFragment_to_digitalsOperacionLogicaFragment)
+        binding.botonLanzarPuertaLogica.setOnClickListener{
+            findNavController().navigate(R.id.action_mainDigital_to_puertaLogicas2)
         }
+
+
+        binding.bOperacion.setOnClickListener {
+            findNavController().navigate(R.id.action_mainDigital_to_digitalsOperacionLogicaFragment)
+        }
+
 
         return binding.root
     }

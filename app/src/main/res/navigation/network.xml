@@ -11,12 +11,23 @@
         android:label="MainNetwork"
         tools:layout="@layout/fragment_network_main" >
         <action
+            android:id="@+id/action_mainNetwork_to_CIDRFragment"
+            app:destination="@id/CIDRFragment" />
+      <action
             android:id="@+id/action_mainNetwork_to_networkMaskExerciseFragment"
             app:destination="@id/networkMaskExerciseFragment" />
     </fragment>
+  
+    <fragment
+        android:id="@+id/CIDRFragment"
+        android:name="es.imovil.fcrtrainerbottom.CIDRFragment"
+        android:label="CIDR"
+        tools:layout="@layout/fragment_cidr" />
+
     <fragment
         android:id="@+id/networkMaskExerciseFragment"
         android:name="es.imovil.fcrtrainerbottom.NetworkMaskExerciseFragment"
         android:label="network_mask_fragment"
         tools:layout="@layout/fragment_network_mask_exercise" />
+
 </navigation>

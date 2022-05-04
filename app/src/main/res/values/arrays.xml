@@ -10,6 +10,30 @@
         <item>reply_all</item>
     </string-array>
 
+    <string-array name="puertas_Logicas">
+        <item>AND</item>
+        <item>OR</item>
+        <item>NOT</item>
+        <item>XOR</item>
+        <item>NAND</item>
+        <item>NOR</item>
+        <item>Buffer triestado</item>
+    </string-array>
+    <array name="imagenes_puertasLogicas">
+        <item>@drawable/logic_gate_and</item>
+        <item>@drawable/logic_gate_or</item>
+        <item>@drawable/logic_gate_not</item>
+        <item>@drawable/logic_gate_xor</item>
+        <item>@drawable/logic_gate_nand</item>
+        <item>@drawable/logic_gate_nor</item>
+        <item>@drawable/logic_gate_buffer</item>
+    </array>
+    <array name="correctoOIncorrecto">
+        <item>@drawable/correct</item>
+        <item>@drawable/incorrect</item>
+    </array>
+
+
     <string-array name="pref_level_entries">
         <item>@string/pref_level1_name</item>
         <item>@string/pref_level2_name</item>
@@ -20,4 +44,5 @@
         <item>@string/pref_level2_name</item>
         <item>@string/pref_level3_name</item>
     </string-array>
+
 </resources>
