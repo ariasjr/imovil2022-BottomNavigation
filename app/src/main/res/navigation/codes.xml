@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainCodes_to_binaryExerciseFragment2"
             app:destination="@id/binaryExerciseFragment2" />
+      <action
+            android:id="@+id/action_mainCodesFragment_to_hexadecimalExerciseFragment"
+            app:destination="@id/hexadecimalExerciceFragment" />
     </fragment>
     <fragment
         android:id="@+id/codesFirstExerciceFragment"
@@ -26,6 +29,9 @@
         android:id="@+id/binaryExerciseFragment2"
         android:name="es.imovil.fcrtrainerbottom.BinaryExerciseFragment"
         android:label="BinaryExerciseFragment" />
-
-
+  <fragment
+        android:id="@+id/hexadecimalExerciceFragment"
+        android:name="es.imovil.fcrtrainerbottom.HexadecimalExerciseFragment"
+        android:label="fragment_hexadecimal_exercice"
+        tools:layout="@layout/fragment_hexadecimal_exercise" />
 </navigation>
