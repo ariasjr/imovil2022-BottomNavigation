@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import es.imovil.fcrtrainerbottom.databinding.FragmentCidrBinding
 
-class CIDRFragment : Fragment(), View.OnClickListener {
+class CIDRFragment : Fragment() {
 
     //Vinculacion de vistas
     private var _binding: FragmentCidrBinding? = null
@@ -22,9 +22,6 @@ class CIDRFragment : Fragment(), View.OnClickListener {
 
     //Viewmodel del fragmento
     val CIDRviewModel: CIDRViewModel by viewModels()
-
-    //Caracter del teclado para borrar
-    val delChar: String="◀"
 
     //Variables para la animacion
     private var mResult: View? = null
@@ -61,7 +58,6 @@ class CIDRFragment : Fragment(), View.OnClickListener {
                 }
                 binding.textViewAnswer.setText("")
             }
-
         }
 
         //Al pulsar boton de solucion se muestra la solucion en input
@@ -82,55 +78,9 @@ class CIDRFragment : Fragment(), View.OnClickListener {
                 binding.textViewQuestion.text=result
             }
         }
-
-        //Configuracion del teclado del fragmento
-        binding.keyDelete.text=delChar
-        binding.b0.setOnClickListener(this)
-        binding.b1.setOnClickListener(this)
-        binding.b2.setOnClickListener(this)
-        binding.b3.setOnClickListener(this)
-        binding.b4.setOnClickListener(this)
-        binding.b5.setOnClickListener(this)
-        binding.b6.setOnClickListener(this)
-        binding.b7.setOnClickListener(this)
-        binding.b8.setOnClickListener(this)
-        binding.b9.setOnClickListener(this)
-        binding.keyDelete.setOnClickListener(this)
-
         return binding.root
     }
 
-    //Se implementan los botones del teclado
-    override fun onClick(v: View) {
-        when(v.id){
-            R.id.b0 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"0")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b1 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"1")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b2 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"2")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b3 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"3")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b4 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"4")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b5 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"5")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b6 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"6")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b7 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"7")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b8 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"8")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.b9 -> { binding.textViewAnswer.setText(binding.textViewAnswer.text.toString()+"9")
-                binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)}
-            R.id.key_delete -> {
-                if(binding.textViewAnswer.text.isNotEmpty()){
-                    binding.textViewAnswer.setText(binding.textViewAnswer.text.take(binding.textViewAnswer.text.length-1))
-                    binding.textViewAnswer.setSelection(binding.textViewAnswer.text.length)
-                }
-            }
-        }
-    }
 
     //Funcion para mostrar la animacion al comprobar una respuesta
     private fun showAnimationAnswer(correct: Boolean) {
