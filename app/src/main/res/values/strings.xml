@@ -1,16 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-Copyright 2014 Profesores y alumnos de la asignatura Informática Móvil de la EPI de Gijón
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-
 <resources>
     <string name="app_name">FCRTrainer Bottom</string>
     <string name="title_codes">Códigos</string>
@@ -33,6 +20,13 @@ limitations under the License.
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Puertas logicas -->
+    <string name="Titulo_PuertaLogica">Puertas Logicas</string>
+    <string name="preguntaPuertaLogica">¿Que puerta lógica es esta?</string>
+    <string name="botonComprobar">COMPROBAR</string>
+    <string name="botonSolucion">SOLUCIÓN</string>
 
     <string name="action_settings">Configuración</string>
     <string name="action_help">Ayuda</string>
@@ -179,4 +173,5 @@ limitations under the License.
     <string name="local_high_scores">Puntuaciones locales</string>
     <string name="error_not_logged_in">Tienes que entrar en sessión en Google Play Games</string>
     <string name="default_net_mask">255.255.255.255</string>
+
 </resources>
