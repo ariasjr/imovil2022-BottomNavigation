@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_mainNetwork_to_networkMaskExerciseFragment"
             app:destination="@id/networkMaskExerciseFragment" />
+        <action
+            android:id="@+id/action_mainNetwork_to_networkAddressExerciseFragement"
+            app:destination="@id/networkAddressExerciseFragement" />
     </fragment>
     <fragment
         android:id="@+id/networkMaskExerciseFragment"
         android:name="es.imovil.fcrtrainerbottom.NetworkMaskExerciseFragment"
         android:label="network_mask_fragment"
         tools:layout="@layout/fragment_network_mask_exercise" />
+    <fragment
+        android:id="@+id/networkAddressExerciseFragement"
+        android:name="es.imovil.fcrtrainerbottom.NetworkAddressExerciseFragment"
+        android:label="network_address_exercise_fragement"
+        tools:layout="@layout/network_address_exercise_fragment" />
 </navigation>
