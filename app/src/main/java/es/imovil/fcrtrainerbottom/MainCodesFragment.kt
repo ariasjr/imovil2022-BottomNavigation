@@ -29,7 +29,11 @@ class MainCodesFragment : Fragment() {
         binding.binarioButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainCodes_to_binaryExerciseFragment2);
         }
-
+        
+        binding.buttonHexadecimal.setOnClickListener {
+            findNavController().navigate(R.id.action_mainCodesFragment_to_hexadecimalExerciseFragment)
+        }
+         
         return binding.root
     }
 

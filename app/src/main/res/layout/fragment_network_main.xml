@@ -8,6 +8,26 @@
     tools:context=".NetworkMainFragment">
 
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragmento de redes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCIDR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        android:text="CIDR"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
     <Button
         android:id="@+id/buttonToNetworkMaskFragment"
         android:layout_width="wrap_content"
@@ -29,5 +49,6 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonToNetworkMaskFragment"
         app:layout_constraintStart_toStartOf="@+id/buttonToNetworkMaskFragment"
         app:layout_constraintTop_toBottomOf="@+id/buttonToNetworkMaskFragment" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

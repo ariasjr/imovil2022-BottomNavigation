@@ -22,6 +22,10 @@ class NetworkMainFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentNetworkMainBinding.inflate(inflater, container, false)
 
+        binding.buttonCIDR.setOnClickListener {
+            findNavController().navigate(R.id.action_mainNetwork_to_CIDRFragment)
+        }
+        
         binding.buttonToNetworkMaskFragment.setOnClickListener {
             findNavController().navigate(R.id.action_mainNetwork_to_networkMaskExerciseFragment)
         }
