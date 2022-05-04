@@ -30,7 +30,7 @@ class NetworkMainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainNetwork_to_networkMaskExerciseFragment)
         }
         binding.buttonToNetworkAddress.setOnClickListener{
-            findNavController().navigate(R.id.action_mainNetwork_to_networkAddressExerciseFragement)
+            findNavController().navigate(R.id.action_mainNetwork_to_networkAddressExerciseFragment)
         }
 
         return binding.root
