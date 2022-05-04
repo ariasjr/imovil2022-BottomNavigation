@@ -25,6 +25,18 @@ class MainCodesFragment : Fragment() {
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_mainCodesFragment_to_codesFirstExerciceFragment)
         }
+/*
+        binding.binarioButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainCodes_to_binaryExerciseFragment2);
+        }
+
+        binding.buttonHexadecimal.setOnClickListener {
+            findNavController().navigate(R.id.action_mainCodesFragment_to_hexadecimalExerciseFragment)
+        }
+*/
+        binding.signoMagnitudButton.setOnClickListener{
+            findNavController().navigate(R.id.action_mainCodesFragment_to_signalMagnitudeFragment)
+        }
 
         return binding.root
     }

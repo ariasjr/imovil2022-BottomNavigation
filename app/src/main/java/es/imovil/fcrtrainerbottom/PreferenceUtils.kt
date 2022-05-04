@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+/*
 Copyright 2014 Profesores y alumnos de la asignatura Informática Móvil de la EPI de Gijón
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -10,22 +9,20 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
+ */
+package es.uniovi.imovil.fcrtrainer
 
-<resources>
+import android.content.Context
+import androidx.preference.PreferenceManager
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+import es.imovil.fcrtrainerbottom.R
 
-    <dimen name="nav_header_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">140dp</dimen>
-
-    <dimen name="small_font">12sp</dimen>
-    <dimen name="normal_font">20sp</dimen>
-    <dimen name="big_font">35sp</dimen>
-    <dimen name="score_font">14sp</dimen>
-
-    <dimen name="key_size">48sp</dimen>
-
-</resources>
+object PreferenceUtils {
+    fun getLevel(context: Context): Level {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val levelPreferenceKey = context.getString(R.string.pref_level_key)
+        val defaultLevel = context.getString(R.string.pref_level1_name)
+        val levelAsString = prefs.getString(levelPreferenceKey, defaultLevel)
+        return Level.fromString(context, levelAsString!!)
+    }
+}
