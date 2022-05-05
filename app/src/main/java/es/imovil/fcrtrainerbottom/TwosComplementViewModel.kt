@@ -12,23 +12,15 @@ class TwosComplementViewModel : ViewModel(){
         bits = i
     }
 
-    private var directConversion = true
+    fun getBits(): Int {
+        return this.bits
+    }
+
+    private var mDirectConversion = true
 
     // Creamos un numero en Complemento a dos, segun el numero maximo de bits introducido
     // Como es complemento a dos con 4 bits solo convertimos de 8 a -7 etc
-    fun createRandomNumber(numberOfBits: Int): Int {
-            var min =  -(Math.pow(2.0, (bits - 1).toDouble()).toInt())
-            var max = (Math.pow(2.0, (bits - 1).toDouble()).toInt()) - 1
 
-            var mNumberToConvert = mRandomGenerator.nextInt(max - min + 1) + min
-
-            if (directConversion) {
-                return mNumberToConvert
-            } else {
-
-                return binaryToStringWithNbits(mNumberToConvert, bits)!!.toInt()
-            }
-    }
 
     fun binaryToStringWithNbits(number: Int, N: Int): String? {
         val formatString = "%" + N + "s"
@@ -74,11 +66,10 @@ class TwosComplementViewModel : ViewModel(){
                 }
                 counter++
 
-            } while (!foundTheZero)
+            } while (!foundTheZero || (counter >= (textInBinaryCharArray.size-1)))
         }
         return String(textInBinaryCharArray)
     }
-
 
     //Pasamos de TwosComplement a decimal
     fun convertToDecimal(twosComplementText: String): String {
@@ -134,18 +125,22 @@ class TwosComplementViewModel : ViewModel(){
     }
 
     fun setDirectConversion(DirectConversion:Boolean){
-        directConversion = DirectConversion
+        mDirectConversion = DirectConversion
     }
 
-    private fun generateRandomNumber(): String {
-        val number: Int = createRandomNumber(bits)
+    fun generateRandomNumber(): String? {
+        val numberOfBits: Int = bits
+        var min =  -(Math.pow(2.0, (numberOfBits - 1).toDouble()).toInt())
+        var max = (Math.pow(2.0, (numberOfBits - 1).toDouble()).toInt()) - 1
 
-        if (directConversion) return number.toString()
-        else return convertToBinary(number.toString())
-    }
+        var mNumberToConvert = mRandomGenerator.nextInt(max - min + 1) + min
 
-    fun nuevaPregunta(): String {
-        return generateRandomNumber()
+        if (mDirectConversion) {
+            return mNumberToConvert.toString()
+        } else {
+
+            return binaryToStringWithNbits(mNumberToConvert, numberOfBits)
+        }
     }
 
 }

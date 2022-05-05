@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnticipateOvershootInterpolator
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextSwitcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -95,11 +98,11 @@ class TwosComplementFragment : Fragment() {
     }
 
     // Obtiene la solucion al problema actual
-    private fun obtainSolution(): String {
+    private fun obtainSolution(): String? {
         if (mConversionDirecta) //Cuando es de decimal a TwosComplement
-            return viewModel.convertToTwosComplement(mNumeroAConvertirString.toString())
+            return viewModel.binaryToStringWithNbits(mNumeroAConvertirString.toInt(),viewModel.getBits())
         else //Cuando es de TwosComplement a decimal
-            return viewModel.convertToDecimal(mNumeroAConvertirString.toString())
+            return mNumeroAConvertirString
     }
 
     //Devuelve el titulo del fragment dependiendo de la conversion actual
@@ -148,9 +151,8 @@ class TwosComplementFragment : Fragment() {
     // Genera una nueva pregunta
     private fun newQuestion() {
         viewModel.setDirectConversion(mConversionDirecta)
-        var nuevaPregunta = viewModel.nuevaPregunta()
-        mNumeroAConvertirTextSwitcher?.setText(nuevaPregunta)
-        mNumeroAConvertirString = nuevaPregunta
+        mNumeroAConvertirString = viewModel.generateRandomNumber().toString()
+        mNumeroAConvertirTextSwitcher?.setText(mNumeroAConvertirString)
         mSolucionEditText!!.setText("")
     }
 
