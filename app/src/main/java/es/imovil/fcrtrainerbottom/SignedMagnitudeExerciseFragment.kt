@@ -117,6 +117,7 @@ class SignedMagnitudeExerciseFragment : Fragment() {
 
     }
 
+
     protected fun comprobar(){
         val respuesta = binding.textViewAnswer?.editableText.toString()
         if (isCorrect(respuesta)) {
