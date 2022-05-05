@@ -26,6 +26,10 @@ class MainCodesFragment : Fragment() {
             findNavController().navigate(R.id.action_mainCodesFragment_to_codesFirstExerciceFragment)
         }
 
+        binding.buttonTwosComplement.setOnClickListener{
+            findNavController().navigate(R.id.action_mainCodesFragment_to_codestwosComplementFragment)
+        }
+
         return binding.root
     }
 
