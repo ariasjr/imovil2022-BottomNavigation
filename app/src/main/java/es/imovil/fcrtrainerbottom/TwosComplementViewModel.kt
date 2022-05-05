@@ -6,6 +6,7 @@ import java.util.*
 class TwosComplementViewModel : ViewModel(){
 
     private var bits: Int = 0
+    private var mRandomGenerator = Random()
 
     fun setBits(i:Int){
         bits = i
@@ -16,12 +17,27 @@ class TwosComplementViewModel : ViewModel(){
     // Creamos un numero en Complemento a dos, segun el numero maximo de bits introducido
     // Como es complemento a dos con 4 bits solo convertimos de 8 a -7 etc
     fun createRandomNumber(numberOfBits: Int): Int {
-        when (numberOfBits) {
-            4 -> return (-8..7).random() // Facil
-            6 -> return (-32..31).random() // Medio
-            8 -> return (-127..128).random() // Dificil
+            var min =  -(Math.pow(2.0, (bits - 1).toDouble()).toInt())
+            var max = (Math.pow(2.0, (bits - 1).toDouble()).toInt()) - 1
+
+            var mNumberToConvert = mRandomGenerator.nextInt(max - min + 1) + min
+
+            if (directConversion) {
+                return mNumberToConvert
+            } else {
+
+                return binaryToStringWithNbits(mNumberToConvert, bits)!!.toInt()
+            }
+    }
+
+    fun binaryToStringWithNbits(number: Int, N: Int): String? {
+        val formatString = "%" + N + "s"
+        val bits = String.format(formatString, Integer.toBinaryString(number)).replace(' ', '0')
+        return if (number >= 0) {
+            bits
+        } else {
+            bits.substring(32 - N)
         }
-        return 0
     }
 
     fun inversaBinario(twosComplementText: String): String {
