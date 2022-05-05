@@ -21,6 +21,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <!-- Puertas logicas -->
+    <string name="Titulo_PuertaLogica">Puertas Logicas</string>
+    <string name="preguntaPuertaLogica">¿Que puerta lógica es esta?</string>
+    <string name="botonComprobar">COMPROBAR</string>
+    <string name="botonSolucion">SOLUCIÓN</string>
+
     <string name="action_settings">Configuración</string>
     <string name="action_help">Ayuda</string>
     <string name="action_game_control">Jugar</string>
@@ -166,4 +173,5 @@
     <string name="local_high_scores">Puntuaciones locales</string>
     <string name="error_not_logged_in">Tienes que entrar en sessión en Google Play Games</string>
     <string name="default_net_mask">255.255.255.255</string>
+
 </resources>
