@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-Copyright 2014 Profesores y alumnos de la asignatura Informática Móvil de la EPI de Gijón
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,37 +11,32 @@ limitations under the License.
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <include
-            android:id="@+id/game_info_panel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/game_info_panel" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/game_info_panel"
-            android:orientation="vertical" >
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
 
             <TextSwitcher
-                android:id="@+id/exercisetitle"
+                android:id="@+id/titleTwosComplement"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
+
                 <TextView
                     style="@style/Title2DarkLight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Exercise title"/>
+                    tools:text="Exercise title" />
+
                 <TextView
                     style="@style/Title2DarkLight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Exercise title"/>
+                    tools:text="Exercise title" />
             </TextSwitcher>
 
             <LinearLayout
@@ -61,30 +45,29 @@ limitations under the License.
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/cards"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextSwitcher
-                    android:id="@+id/numbertoconvert"
+                    android:id="@+id/number2ConvertTwosComplement"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.6"
-                    >
+                    android:layout_weight="1.6">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/mediumdarkgray"
                         android:gravity="center_horizontal"
                         android:text="0001"
-                        android:textSize="@dimen/normal_font">
-                    </TextView>
+                        android:textColor="@color/mediumdarkgray"
+                        android:textSize="@dimen/normal_font"></TextView>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/mediumdarkgray"
                         android:gravity="center_horizontal"
                         android:text="0010"
-                        android:textSize="@dimen/normal_font">
-                    </TextView>
+                        android:textColor="@color/mediumdarkgray"
+                        android:textSize="@dimen/normal_font"></TextView>
                 </TextSwitcher>
 
                 <EditText
@@ -98,37 +81,39 @@ limitations under the License.
                     android:inputType="text"
                     android:padding="10dp"
                     android:textSize="@dimen/normal_font"
-                    tools:text="1"/>
+                    tools:text="1" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/checkbutton"
+                    android:id="@+id/checkButtonTwosComplement"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/check" />
 
                 <Button
-                    android:id="@+id/seesolution"
+                    android:id="@+id/solutionTwosComplement"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/solution" />
 
                 <Button
-                    android:id="@+id/change"
+                    android:id="@+id/changeTwosComplement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_import_export"
                     android:drawableStart="@drawable/ic_import_export"
-                    android:minWidth="48dp" />
+                    android:drawableLeft="@drawable/ic_import_export"
+                    android:minWidth="48dp"
+                    app:icon="@drawable/ic_import_export"
+                    app:iconSize="30dp" />
             </LinearLayout>
 
-            <es.uniovi.imovil.fcrtrainer.KeyboardView
+            <es.imovil.fcrtrainerbottom.KeyboardView
                 android:id="@+id/keyboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

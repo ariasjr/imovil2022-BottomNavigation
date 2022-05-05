@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import es.imovil.fcrtrainerbottom.databinding.FragmentMainCodesBinding
 
-
-
 class MainCodesFragment : Fragment() {
 
     private var _binding: FragmentMainCodesBinding? = null
@@ -22,15 +20,10 @@ class MainCodesFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMainCodesBinding.inflate(inflater, container, false)
 
-/*
-        binding.binarioButton.setOnClickListener {
-            findNavController().navigate(R.id.action_mainCodes_to_binaryExerciseFragment2);
+        binding.buttonTwosComplement.setOnClickListener{
+            findNavController().navigate(R.id.action_mainCodesFragment_to_codestwosComplementFragment)
         }
 
-        binding.buttonHexadecimal.setOnClickListener {
-            findNavController().navigate(R.id.action_mainCodesFragment_to_hexadecimalExerciseFragment)
-        }
-*/
         binding.signoMagnitudButton.setOnClickListener{
             findNavController().navigate(R.id.action_mainCodesFragment_to_signalMagnitudeFragment)
         }
