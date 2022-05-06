@@ -12,12 +12,11 @@
     tools:context=".MainDigitalsFragment">
 
 
-
     <Button
         android:id="@+id/botonLanzarPuertaLogica"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Puertas logicas"
+        android:text="Puertas lógicas"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
@@ -28,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="45dp" />
+        app:layout_constraintGuide_end="366dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -49,28 +48,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="121dp" />
+        app:layout_constraintGuide_begin="120dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Fragmento de digitales"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="220dp" />
 
     <Button
         android:id="@+id/b_operacion"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
         android:text="Operación Lógica"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
