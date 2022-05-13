@@ -9,5 +9,33 @@
         android:id="@+id/mainDigital"
         android:name="es.imovil.fcrtrainerbottom.MainDigitalsFragment"
         android:label="MainDigital"
-        tools:layout="@layout/fragment_main_digitals" />
+        tools:layout="@layout/fragment_main_digitals" >
+        <action
+
+            android:id="@+id/action_mainDigital_to_puertaLogicas2"
+            app:destination="@id/puertaLogicas2" />
+        <action
+            android:id="@+id/action_mainDigital_to_puertaLogicas22"
+            app:destination="@id/puertaLogicas2" />
+        <action
+            android:id="@+id/action_mainDigital_to_digitalsOperacionLogicaFragment"
+            app:destination="@id/digitalsOperacionLogicaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/puertaLogicas2"
+        android:name="es.imovil.fcrtrainerbottom.PuertaLogicas"
+        android:label="fragment_puerta_logicas"
+        tools:layout="@layout/fragment_puerta_logicas" />
+    <![CDATA[
+    =======
+            android:id="@+id/action_mainDigitalFragment_to_digitalsOperacionLogicaFragment"
+            app:destination="@id/digitalsOperacionLogicaFragment" />
+    ]]>
+
+    <fragment
+        android:id="@+id/digitalsOperacionLogicaFragment"
+        android:name="es.imovil.fcrtrainerbottom.DigitalsOperacionLogicaFragment"
+        android:label="fragment_digitals_operacion_logica"
+        tools:layout="@layout/fragment_digitals_operacion_logica" />
+
 </navigation>
